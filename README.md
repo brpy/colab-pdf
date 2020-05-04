@@ -1,9 +1,9 @@
 ## Usage 
 
 Paste and run this in your colab notebook in the last cell.
-```python
+```
 !wget https://raw.githubusercontent.com/brpy/colab-pdf/master/colab_pdf.py
-%loadpy colab_pdf
+from colab_pdf import colab_pdf
 colab_pdf('pandas-assignment.ipynb')
 ```
 Enter the the full file name as shown above, within quotes. A file download dialog will show up in your browser, 
