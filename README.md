@@ -19,7 +19,7 @@ The outputs can be long as a lot of commands are run in the background. You can 
 from colab_pdf import colab_pdf
 colab_pdf('pandas-assignment.ipynb')
 ```
-
+ ***Note:*** This will also hide pdf creation, pdf save logs. So check your Google Drive for the pdf.
 #### Defaults
 ```python
 def colab_pdf(file_name, saveto_Drive = True ,notebookpath = '/content/drive/My Drive/Colab Notebooks/'):
