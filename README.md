@@ -16,6 +16,15 @@ If you also want to save the pdf in Google Drive, you can set flag ```saveto_Dri
 
 ```colab_pdf('pandas-assignment.ipynb',True)```  will download pdf to My Drive folder on your Google Drive.
 
+#### I want to hide output
+The outputs can be long as a lot of commands are run in the background. You can use `%%capture` magic to hide the cell output.
+```
+%%capture
+!wget -nc https://raw.githubusercontent.com/brpy/colab-pdf/master/colab_pdf.py
+from colab_pdf import colab_pdf
+colab_pdf('pandas-assignment.ipynb')
+```
+
 #### Defaults
 ```python
 def colab_pdf(file_name, saveto_Drive = False ,notebookpath = '/content/drive/My Drive/Colab Notebooks/'):
