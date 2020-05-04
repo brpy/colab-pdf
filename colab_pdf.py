@@ -14,8 +14,8 @@ def colab_pdf(file_name, saveto_Drive = False ,notebookpath = '/content/drive/My
   if(not os.path.isfile(os.path.join(notebookpath,file_name))):
     raise ValueError(f"file '{file_name}' not found in path '{notebookpath}'.")
 
-  !apt update && apt install texlive-xetex texlive-fonts-recommended texlive-generic-recommended
-  !jupyter nbconvert --output-dir='$gdrive_home' '$notebookpath''$file_name' --to pdf
+  get_ipython().system("apt update && apt install texlive-xetex texlive-fonts-recommended texlive-generic-recommended")
+  get_ipython().system("jupyter nbconvert --output-dir='$gdrive_home' '$notebookpath''$file_name' --to pdf)
 
   from google.colab import files
   file_name = file_name.split('.')[0] + '.pdf'
