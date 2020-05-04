@@ -15,19 +15,19 @@ ___
 If you also want to save the pdf in Google Drive, you can set flag ```saveto_Drive = True``` as shown below:
 
 ```colab_pdf('pandas-assignment.ipynb',True)```  will download pdf to My Drive folder on your Google Drive.
-___
+
 #### Defaults
 ```python
 def colab_pdf(file_name, saveto_Drive = False ,notebookpath = '/content/drive/My Drive/Colab Notebooks/'):
 ```
 Do **not** change the defaults unless required to. A simple ```colab_pdf('notebook_name.ipynb')``` will work in most cases.
-___
+
 #### Google Drive Access
 This requires that you have already mounted your google drive in your notebook. If not, this will attempt to Mount your drive, which may ask for your auhtentication.
-___
+
 #### Printing from browser works for me, why use this?
 If you are satisfied from browser's pdf, this might not be for you. This uses jupyter's `nbconvert` which is the recommended way to convert `.ipynb` to `.pdf` and may produce better results.
-___
+
 #### Error in nbcovert or xelatex
 nbconvert and xelatex are not perfect and might fail to convert your file to pdf. In such case try to debug using output logs or use browser's  File -> Print  method.
 ___
