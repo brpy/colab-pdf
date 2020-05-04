@@ -17,7 +17,7 @@ def colab_pdf(file_name, notebookpath = '/content/drive/My Drive/Colab Notebooks
   get_ipython().system("apt update && apt install texlive-xetex texlive-fonts-recommended texlive-generic-recommended")
   get_ipython().system("jupyter nbconvert --output-dir='$gdrive_home' '$notebookpath''$file_name' --to pdf")
   
-  try():
+  try:
     from google.colab import files
     file_name = file_name.split('.')[0] + '.pdf'
     files.download(gdrive_home+file_name)
