@@ -2,7 +2,7 @@
 
 Paste and run this in your colab notebook in the last cell.
 ```
-!wget https://raw.githubusercontent.com/brpy/colab-pdf/master/colab_pdf.py
+!wget -nc https://raw.githubusercontent.com/brpy/colab-pdf/master/colab_pdf.py
 from colab_pdf import colab_pdf
 colab_pdf('pandas-assignment.ipynb')
 ```
