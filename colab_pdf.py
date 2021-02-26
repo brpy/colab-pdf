@@ -21,9 +21,9 @@ def colab_pdf(file_name, notebookpath="/content/drive/My Drive/Colab Notebooks/"
     if not os.path.isfile(os.path.join(notebookpath, file_name)):
         raise ValueError(f"file '{file_name}' not found in path '{notebookpath}'.")
 
-    # Installing all the necessary packages.
+    # Installing all the recommended packages.
     get_ipython().system(
-        "apt update && apt install texlive-xetex texlive-fonts-recommended texlive-generic-recommended >> /dev/null"
+        "apt update >> /dev/null && apt install texlive-xetex texlive-fonts-recommended texlive-generic-recommended >> /dev/null"
     )
 
     # If pdf with the same name exists, remove it.
