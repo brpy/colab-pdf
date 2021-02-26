@@ -27,8 +27,10 @@ def colab_pdf(file_name, notebookpath="/content/drive/My Drive/Colab Notebooks/"
     )
 
     # If pdf with the same name exists, remove it.
-    if os.path.isfile(os.path.join(gdrive_home, file_name.split(".")[0] + ".pdf")):
-        os.remove(os.path.join(gdrive_home, file_name.split(".")[0] + ".pdf"))
+    pdf_file = os.path.join(gdrive_home, file_name.split(".")[0] + ".pdf")
+    
+    if os.path.isfile(pdf_file):
+        os.remove(pdf_file)
 
     # Attempt to convert to pdf and save it in Gdrive home dir using jupyter nbconvert command.
     try:
