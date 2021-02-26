@@ -28,14 +28,6 @@ colab_pdf('pandas-assignment.ipynb')
 ```
  *Note:* This will also hide pdf creation, pdf save logs. So check your Google Drive for the pdf.
 
-
-#### Defaults
-```python
-def colab_pdf(file_name, saveto_Drive = True ,notebookpath = '/content/drive/My Drive/Colab Notebooks/'):
-```
-Do not change the defaults unless required to. A simple ```colab_pdf('notebook_name.ipynb')``` will work in most cases.
-
-
 #### Google Drive Access
 This requires that you have already mounted your google drive in your notebook. If not, this will attempt to Mount your drive, which may ask for your auhtentication.
 
