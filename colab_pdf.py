@@ -23,7 +23,7 @@ def colab_pdf(file_name, notebookpath="/content/drive/My Drive/Colab Notebooks/"
 
     # Installing all the necessary packages.
     get_ipython().system(
-        "apt update && apt install texlive-xetex texlive-fonts-recommended texlive-generic-recommended"
+        "apt update && apt install texlive-xetex texlive-fonts-recommended texlive-generic-recommended >> /dev/null"
     )
 
     # If pdf with the same name exists, remove it.
