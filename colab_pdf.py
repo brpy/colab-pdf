@@ -1,34 +1,50 @@
-def colab_pdf(file_name, notebookpath = '/content/drive/My Drive/Colab Notebooks/'):
-  import os
-  
-  if(not isinstance(file_name,str)):
-    raise TypeError(f"expected a string as file_name, but got {type(file_name)} instead.")
-  
-  drive_mount_point = '/content/drive/'
-  gdrive_home = os.path.join(drive_mount_point, 'My Drive/')
-  
-  if(not os.path.isdir(gdrive_home)):
-    from google.colab import drive
-    drive.mount(drive_mount_point)
+def colab_pdf(file_name, notebookpath="/content/drive/My Drive/Colab Notebooks/"):
+    import os
 
-  if(not os.path.isfile(os.path.join(notebookpath,file_name))):
-    raise ValueError(f"file '{file_name}' not found in path '{notebookpath}'.")
+    # Checking if file_name passed is a sring.
+    if not isinstance(file_name, str):
+        raise TypeError(
+            f"expected a string as file_name, but got {type(file_name)} instead."
+        )
 
-  get_ipython().system("apt update && apt install texlive-xetex texlive-fonts-recommended texlive-generic-recommended")
-  
-  if(os.path.isfile(os.path.join(gdrive_home,file_name.split('.')[0] + '.pdf'))):
-    os.remove(os.path.join(gdrive_home,file_name.split('.')[0] + '.pdf'))
-  
-  try:
-    get_ipython().system("jupyter nbconvert --output-dir='$gdrive_home' '$notebookpath''$file_name' --to pdf")
-  except:
-    return("nbconvert error")
-  
-  try:
-    from google.colab import files
-    file_name = file_name.split('.')[0] + '.pdf'
-    files.download(gdrive_home+file_name)
-  except:
-    return("File Download Unsuccessful. Saved in Google Drive")
-  
-  return("File ready to be Downloaded and Saved to Drive")
+    # Using the defaults used by google.colab
+    drive_mount_point = "/content/drive/"
+    gdrive_home = os.path.join(drive_mount_point, "My Drive/")
+
+    # If the drive is not already mounted, attempt to mount it.
+    if not os.path.isdir(gdrive_home):
+        from google.colab import drive
+
+        drive.mount(drive_mount_point)
+
+    # Check if the notebook exists in the Drive.
+    if not os.path.isfile(os.path.join(notebookpath, file_name)):
+        raise ValueError(f"file '{file_name}' not found in path '{notebookpath}'.")
+
+    # Installing all the necessary packages.
+    get_ipython().system(
+        "apt update && apt install texlive-xetex texlive-fonts-recommended texlive-generic-recommended"
+    )
+
+    # If pdf with the same name exists, remove it.
+    if os.path.isfile(os.path.join(gdrive_home, file_name.split(".")[0] + ".pdf")):
+        os.remove(os.path.join(gdrive_home, file_name.split(".")[0] + ".pdf"))
+
+    # Attempt to convert to pdf and save it in Gdrive home dir using jupyter nbconvert command.
+    try:
+        get_ipython().system(
+            "jupyter nbconvert --output-dir='$gdrive_home' '$notebookpath''$file_name' --to pdf"
+        )
+    except:
+        return "nbconvert error"
+
+    # Attempt to download the file to system.
+    try:
+        from google.colab import files
+
+        file_name = file_name.split(".")[0] + ".pdf"
+        files.download(gdrive_home + file_name)
+    except:
+        return "File Download Unsuccessful. Saved in Google Drive"
+
+    return "File ready to be Downloaded and Saved to Drive"
