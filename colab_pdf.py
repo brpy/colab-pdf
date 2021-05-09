@@ -1,7 +1,7 @@
 def colab_pdf(file_name, notebookpath="/content/drive/My Drive/Colab Notebooks/"):
     import os
 
-    # Checking if file_name passed is a sring.
+    # Checking if file_name passed is a string.
     if not isinstance(file_name, str):
         raise TypeError(
             f"expected a string as file_name, but got {type(file_name)} instead."
