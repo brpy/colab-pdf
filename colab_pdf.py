@@ -1,4 +1,4 @@
-def colab_pdf(file_name, notebookpath="/content/drive/My Drive/Colab Notebooks/"):
+def colab_pdf(file_name, notebookpath="drive/MyDrive/Colab Notebooks/"):
     import os
 
     # Checking if file_name passed is a string.
@@ -8,8 +8,8 @@ def colab_pdf(file_name, notebookpath="/content/drive/My Drive/Colab Notebooks/"
         )
 
     # Using the defaults used by google.colab
-    drive_mount_point = "/content/drive/"
-    gdrive_home = os.path.join(drive_mount_point, "My Drive/")
+    drive_mount_point = "/drive/"
+    gdrive_home = os.path.join(drive_mount_point, "MyDrive/")
 
     # If the drive is not already mounted, attempt to mount it.
     if not os.path.isdir(gdrive_home):
