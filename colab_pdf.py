@@ -1,4 +1,4 @@
-def colab_pdf(file_name, notebookpath="/content/drive/My Drive/Colab Notebooks/"):
+def colab_pdf(file_name, notebookpath="/content/drive/MyDrive/Colab Notebooks/"):
     import os
 
     # Checking if file_name passed is a string.
